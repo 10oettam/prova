@@ -64,7 +64,7 @@ function Balloon({ pos, color }: { pos: readonly [number, number, number]; color
         {/* String */}
         <mesh position={[0, -0.52, 0]}>
           <cylinderGeometry args={[0.007, 0.007, 0.45, 4]} />
-          <meshStandardMaterial color="rgba(255,255,255,0.5)" roughness={1} />
+          <meshStandardMaterial color="#dddddd" roughness={1} transparent opacity={0.5} />
         </mesh>
       </group>
     </Float>

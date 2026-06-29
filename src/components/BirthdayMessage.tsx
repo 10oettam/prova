@@ -71,7 +71,7 @@ export default function BirthdayMessage({ onReset }: Props) {
             animate="visible"
             style={{
               display: 'inline-block',
-              fontSize: char === ' ' ? 20 : 38,
+              fontSize: char === ' ' ? 14 : 26,
               fontWeight: 800,
               color: 'white',
               textShadow: '0 2px 12px rgba(0,0,0,0.25)',
@@ -91,7 +91,7 @@ export default function BirthdayMessage({ onReset }: Props) {
         variants={bounceVariants}
         initial="hidden"
         animate="visible"
-        style={{ fontSize: 80, marginBottom: 20, lineHeight: 1 }}
+        style={{ fontSize: 60, marginBottom: 16, lineHeight: 1 }}
       >
         🎂
       </motion.div>
@@ -103,10 +103,10 @@ export default function BirthdayMessage({ onReset }: Props) {
         transition={{ delay: 1.5, duration: 0.6 }}
         style={{
           color: 'rgba(255,255,255,0.88)',
-          fontSize: 18,
+          fontSize: 15,
           textAlign: 'center',
-          padding: '0 32px',
-          marginBottom: 48,
+          padding: '0 28px',
+          marginBottom: 32,
           fontFamily: "'Georgia', serif",
           fontStyle: 'italic',
         }}

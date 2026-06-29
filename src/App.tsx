@@ -15,7 +15,6 @@ export default function App() {
 
   const handleMicStart = useCallback(() => {
     setPhase('listening')
-    // Start intro song — triggered by user gesture (mic button click)
     playIntro()
   }, [playIntro])
 
@@ -66,6 +65,7 @@ export default function App() {
               onMicStart={handleMicStart}
               onBlowDetected={handleBlowDetected}
               onVolumeChange={setVolume}
+              onMusicStart={playIntro}
             />
           </motion.div>
         ) : (
