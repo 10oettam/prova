@@ -49,33 +49,33 @@ export default function Table() {
 
       {/* ── 4 WALLS ── all DoubleSide so they're never culled ── */}
 
-      {/* Back wall (behind the cake) */}
-      <mesh position={[0, 4, -9]}>
-        <planeGeometry args={[24, 16]} />
+      {/* Back wall */}
+      <mesh position={[0, 5, -20]}>
+        <planeGeometry args={[50, 22]} />
         <meshStandardMaterial color="#FFE8F4" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Left wall */}
-      <mesh position={[-9, 4, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[24, 16]} />
+      <mesh position={[-20, 5, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[50, 22]} />
         <meshStandardMaterial color="#F0E4FF" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Right wall */}
-      <mesh position={[9, 4, 0]} rotation={[0, -Math.PI / 2, 0]}>
-        <planeGeometry args={[24, 16]} />
+      <mesh position={[20, 5, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[50, 22]} />
         <meshStandardMaterial color="#F0E4FF" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* Front wall (behind camera, catches light bleeding) */}
-      <mesh position={[0, 4, 13]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[24, 16]} />
+      {/* Front wall */}
+      <mesh position={[0, 5, 20]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[50, 22]} />
         <meshStandardMaterial color="#FFE8F4" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Ceiling */}
-      <mesh position={[0, 10, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[28, 28]} />
+      <mesh position={[0, 12, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[50, 50]} />
         <meshStandardMaterial color="#FFF5FB" roughness={1} side={THREE.DoubleSide} />
       </mesh>
     </group>
