@@ -178,7 +178,7 @@ export default function CakeMesh() {
         >
           <div
             style={{
-              fontSize: 68,
+              fontSize: 38,
               fontWeight: 700,
               color: '#FF1493',
               textShadow: '0 2px 0 #fff, 0 0 20px rgba(255,20,147,0.5)',
@@ -189,7 +189,7 @@ export default function CakeMesh() {
           </div>
           <div
             style={{
-              fontSize: 82,
+              fontSize: 46,
               fontWeight: 800,
               color: '#C44DFF',
               textShadow: '0 2px 0 #fff, 0 0 20px rgba(196,77,255,0.5)',

@@ -1,3 +1,5 @@
+import * as THREE from 'three'
+
 export default function Table() {
   const woodDark = '#7B4F2E'
   const woodLight = '#A0673A'
@@ -5,7 +7,7 @@ export default function Table() {
 
   return (
     <group>
-      {/* Tablecloth — slightly wider, sits on top of table */}
+      {/* Tablecloth */}
       <mesh position={[0, 0.13, 0]}>
         <cylinderGeometry args={[3.55, 3.55, 0.06, 48]} />
         <meshStandardMaterial color={clothColor} roughness={0.9} />
@@ -31,48 +33,50 @@ export default function Table() {
         </mesh>
       ))}
 
-      {/* Floor — large warm parquet plane */}
+      {/* Floor */}
       <mesh position={[0, -2.42, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[40, 40]} />
-        <meshStandardMaterial color="#C8965A" roughness={0.85} metalness={0.02} />
+        <planeGeometry args={[50, 50]} />
+        <meshStandardMaterial color="#C8965A" roughness={0.85} metalness={0.02} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* Floor board lines — subtle strips */}
+      {/* Floor board lines */}
       {[-6, -3, 0, 3, 6].map((offset, i) => (
         <mesh key={i} position={[offset, -2.41, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[0.04, 40]} />
-          <meshStandardMaterial color="#A0724A" roughness={0.9} />
+          <planeGeometry args={[0.04, 50]} />
+          <meshStandardMaterial color="#A0724A" roughness={0.9} side={THREE.DoubleSide} />
         </mesh>
       ))}
 
-      {/* Back wall */}
-      <mesh position={[0, 5, -10]}>
-        <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial color="#FFE8F4" roughness={1} />
+      {/* ── 4 WALLS ── all DoubleSide so they're never culled ── */}
+
+      {/* Back wall (behind the cake) */}
+      <mesh position={[0, 4, -9]}>
+        <planeGeometry args={[24, 16]} />
+        <meshStandardMaterial color="#FFE8F4" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Left wall */}
-      <mesh position={[-10, 5, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial color="#F0E4FF" roughness={1} />
+      <mesh position={[-9, 4, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[24, 16]} />
+        <meshStandardMaterial color="#F0E4FF" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Right wall */}
-      <mesh position={[10, 5, 0]} rotation={[0, -Math.PI / 2, 0]}>
-        <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial color="#F0E4FF" roughness={1} />
+      <mesh position={[9, 4, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[24, 16]} />
+        <meshStandardMaterial color="#F0E4FF" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* Front wall (behind camera — very far so barely visible) */}
-      <mesh position={[0, 5, 12]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial color="#FFE8F4" roughness={1} />
+      {/* Front wall (behind camera, catches light bleeding) */}
+      <mesh position={[0, 4, 13]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[24, 16]} />
+        <meshStandardMaterial color="#FFE8F4" roughness={1} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Ceiling */}
       <mesh position={[0, 10, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[30, 30]} />
-        <meshStandardMaterial color="#FFF5FB" roughness={1} />
+        <planeGeometry args={[28, 28]} />
+        <meshStandardMaterial color="#FFF5FB" roughness={1} side={THREE.DoubleSide} />
       </mesh>
     </group>
   )
