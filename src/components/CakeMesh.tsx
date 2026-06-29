@@ -161,7 +161,7 @@ export default function CakeMesh() {
       <Html
         position={[0, 1.15, 1.73]}
         center
-        distanceFactor={8}
+        distanceFactor={30}
         transform
         style={{ pointerEvents: 'none' }}
       >
@@ -170,27 +170,30 @@ export default function CakeMesh() {
             textAlign: 'center',
             fontFamily: 'Georgia, "Times New Roman", serif',
             fontStyle: 'italic',
-            lineHeight: 1.25,
+            lineHeight: 1.2,
             userSelect: 'none',
             whiteSpace: 'nowrap',
+            WebkitFontSmoothing: 'antialiased',
           }}
         >
           <div
             style={{
-              fontSize: 18,
+              fontSize: 68,
               fontWeight: 700,
               color: '#FF1493',
-              textShadow: '0 1px 0 #fff, 0 0 10px rgba(255,20,147,0.6)',
+              textShadow: '0 2px 0 #fff, 0 0 20px rgba(255,20,147,0.5)',
+              letterSpacing: '-1px',
             }}
           >
             Buon Compleanno
           </div>
           <div
             style={{
-              fontSize: 22,
+              fontSize: 82,
               fontWeight: 800,
               color: '#C44DFF',
-              textShadow: '0 1px 0 #fff, 0 0 10px rgba(196,77,255,0.6)',
+              textShadow: '0 2px 0 #fff, 0 0 20px rgba(196,77,255,0.5)',
+              letterSpacing: '-1px',
             }}
           >
             Michelle
