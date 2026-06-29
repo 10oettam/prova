@@ -2,7 +2,6 @@ import { useState, useCallback, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import CakeScene from './components/CakeScene'
 import BirthdayMessage from './components/BirthdayMessage'
-import { useYouTubeAudio } from './hooks/useYouTubeAudio'
 
 type Phase = 'initial' | 'listening' | 'complete'
 
@@ -11,18 +10,15 @@ export default function App() {
   const [candlesLit, setCandlesLit] = useState<boolean[]>(() => Array(21).fill(true))
   const [volume, setVolume] = useState(0)
   const extinguishingRef = useRef(false)
-  const { playIntro, playBirthday } = useYouTubeAudio()
 
   const handleMicStart = useCallback(() => {
     setPhase('listening')
-    playIntro()
-  }, [playIntro])
+  }, [])
 
   const handleBlowDetected = useCallback(() => {
     if (extinguishingRef.current) return
     extinguishingRef.current = true
 
-    // Random delay per candle: 0–800ms
     for (let i = 0; i < 21; i++) {
       const delay = Math.random() * 800
       setTimeout(() => {
@@ -34,12 +30,10 @@ export default function App() {
       }, delay)
     }
 
-    // Switch to birthday screen + song after candles finish
     setTimeout(() => {
-      playBirthday()
       setPhase('complete')
     }, 1800)
-  }, [playBirthday])
+  }, [])
 
   const handleReset = useCallback(() => {
     extinguishingRef.current = false
@@ -65,7 +59,6 @@ export default function App() {
               onMicStart={handleMicStart}
               onBlowDetected={handleBlowDetected}
               onVolumeChange={setVolume}
-              onMusicStart={playIntro}
             />
           </motion.div>
         ) : (

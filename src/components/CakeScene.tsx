@@ -15,7 +15,6 @@ interface Props {
   onMicStart: () => void
   onBlowDetected: () => void
   onVolumeChange: (v: number) => void
-  onMusicStart?: () => void
 }
 
 function LoadingSpinner() {
@@ -152,30 +151,20 @@ export default function CakeScene({
   onMicStart,
   onBlowDetected,
   onVolumeChange,
-  onMusicStart,
 }: Props) {
   const { startListening, getVolume, getPeak, error, supported } = useMicrophone()
   const orbitRef = useRef<any>(null)
   const [micError, setMicError] = useState<string | null>(null)
-  const [musicPlaying, setMusicPlaying] = useState(false)
   const allOut = candlesLit.every((lit) => !lit)
 
   const handleMicClick = useCallback(async () => {
     const ok = await startListening()
     if (ok) {
       onMicStart()
-      // Also start music on this user gesture
-      onMusicStart?.()
-      setMusicPlaying(true)
     } else {
       setMicError('Microfono non disponibile')
     }
-  }, [startListening, onMicStart, onMusicStart])
-
-  const handleMusicToggle = useCallback(() => {
-    onMusicStart?.()
-    setMusicPlaying(true)
-  }, [onMusicStart])
+  }, [startListening, onMicStart])
 
   const volPercent = Math.min(100, (volume / 55) * 100)
   const barColor = volume > 42 ? '#22c55e' : volume > 25 ? '#fbbf24' : 'rgba(80,20,60,0.25)'
@@ -272,27 +261,6 @@ export default function CakeScene({
               </button>
             )}
           </>
-        )}
-
-        {phase === 'listening' && !musicPlaying && (
-          <button
-            onClick={handleMusicToggle}
-            style={{
-              position: 'absolute',
-              top: 12,
-              right: 14,
-              padding: '6px 12px',
-              background: 'rgba(139,26,90,0.15)',
-              color: '#8B1A5A',
-              borderRadius: 20,
-              fontSize: 13,
-              fontWeight: 600,
-              border: '1px solid rgba(139,26,90,0.25)',
-              cursor: 'pointer',
-            }}
-          >
-            🎵 Musica
-          </button>
         )}
 
         {phase === 'listening' && (
