@@ -178,22 +178,22 @@ export default function CakeMesh() {
         >
           <div
             style={{
-              fontSize: 38,
+              fontSize: 20,
               fontWeight: 700,
               color: '#FF1493',
-              textShadow: '0 2px 0 #fff, 0 0 20px rgba(255,20,147,0.5)',
-              letterSpacing: '-1px',
+              textShadow: '0 1px 0 #fff, 0 0 10px rgba(255,20,147,0.5)',
+              letterSpacing: '-0.5px',
             }}
           >
             Buon Compleanno
           </div>
           <div
             style={{
-              fontSize: 46,
+              fontSize: 26,
               fontWeight: 800,
               color: '#C44DFF',
-              textShadow: '0 2px 0 #fff, 0 0 20px rgba(196,77,255,0.5)',
-              letterSpacing: '-1px',
+              textShadow: '0 1px 0 #fff, 0 0 10px rgba(196,77,255,0.5)',
+              letterSpacing: '-0.5px',
             }}
           >
             Michelle
