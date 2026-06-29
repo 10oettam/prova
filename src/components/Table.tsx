@@ -45,14 +45,34 @@ export default function Table() {
         </mesh>
       ))}
 
-      {/* Wall — back plane */}
-      <mesh position={[0, 5, -8]} rotation={[0, 0, 0]}>
+      {/* Back wall */}
+      <mesh position={[0, 5, -10]}>
         <planeGeometry args={[30, 20]} />
         <meshStandardMaterial color="#FFE8F4" roughness={1} />
       </mesh>
-      <mesh position={[-8, 5, 0]} rotation={[0, Math.PI / 2, 0]}>
+
+      {/* Left wall */}
+      <mesh position={[-10, 5, 0]} rotation={[0, Math.PI / 2, 0]}>
         <planeGeometry args={[30, 20]} />
         <meshStandardMaterial color="#F0E4FF" roughness={1} />
+      </mesh>
+
+      {/* Right wall */}
+      <mesh position={[10, 5, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[30, 20]} />
+        <meshStandardMaterial color="#F0E4FF" roughness={1} />
+      </mesh>
+
+      {/* Front wall (behind camera — very far so barely visible) */}
+      <mesh position={[0, 5, 12]} rotation={[0, Math.PI, 0]}>
+        <planeGeometry args={[30, 20]} />
+        <meshStandardMaterial color="#FFE8F4" roughness={1} />
+      </mesh>
+
+      {/* Ceiling */}
+      <mesh position={[0, 10, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[30, 30]} />
+        <meshStandardMaterial color="#FFF5FB" roughness={1} />
       </mesh>
     </group>
   )

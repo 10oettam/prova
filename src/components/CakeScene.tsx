@@ -186,7 +186,7 @@ export default function CakeScene({
             powerPreference: 'high-performance',
           }}
           shadows={false}
-          camera={{ position: [0, 1.5, 5.5], fov: 48 }}
+          camera={{ position: [0, 2.5, 9], fov: 44 }}
           style={{ touchAction: 'none' }}
         >
           <SceneContent
