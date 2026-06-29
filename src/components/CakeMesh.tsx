@@ -161,7 +161,7 @@ export default function CakeMesh() {
       <Html
         position={[0, 1.15, 1.73]}
         center
-        distanceFactor={30}
+        distanceFactor={8}
         transform
         style={{ pointerEvents: 'none' }}
       >
@@ -178,22 +178,22 @@ export default function CakeMesh() {
         >
           <div
             style={{
-              fontSize: 20,
+              fontSize: 13,
               fontWeight: 700,
               color: '#FF1493',
-              textShadow: '0 1px 0 #fff, 0 0 10px rgba(255,20,147,0.5)',
-              letterSpacing: '-0.5px',
+              textShadow: '0 1px 0 #fff',
+              letterSpacing: '0px',
             }}
           >
             Buon Compleanno
           </div>
           <div
             style={{
-              fontSize: 26,
+              fontSize: 16,
               fontWeight: 800,
               color: '#C44DFF',
-              textShadow: '0 1px 0 #fff, 0 0 10px rgba(196,77,255,0.5)',
-              letterSpacing: '-0.5px',
+              textShadow: '0 1px 0 #fff',
+              letterSpacing: '0px',
             }}
           >
             Michelle
